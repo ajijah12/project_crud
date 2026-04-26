@@ -22,11 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-route::apiResource('prodi', ProdiController::class); // Rute untuk Prodi
-route::apiResource('mahasiswa', MahasiswaController::class); // Rute untuk Mahasiswa
-route::apiResource('kategori', KategoriController::class); // Rute untuk Kategori
-route::apiResource('media', MediaController::class); // Rute untuk Media
-
 //prodi
 route::get('/prodi', [ProdiController::class, 'index']);
 route::post('/prodi', [ProdiController::class, 'store']);

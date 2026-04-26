@@ -13,12 +13,19 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id('media_id');
-            $table->string('judul');
-            $table->text('deskripsi');
-            $table->string('file_url');
-
+           
+            //relasi ke mahasiswa dan kategori (fereign key)
             $table->foreignId('mahasiswa_id')->references('mahasiswa_id')->on('mahasiswa');
             $table->foreignId('kategori_id')->references('kategori_id')->on('kategori');
+           
+           //kolom lainnya
+            $table->string('judul');
+            $table->text('deskripsi');
+            $table->string('judul_penelitian')->nullable();
+            $table->string('tahun_terbit');
+            $table->string('link_media');
+            $table->string('gambar_cover');
+            $table->string('file_url');
             $table->timestamps();
         });
     }
